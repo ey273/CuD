@@ -14,6 +14,7 @@ class SCFModel:
         count_time = d * self.count_steps * self.t_ap
         return (n / max(self.parallelization, 1)) * (xor_time + count_time)
 
+
 @dataclass
 class MemoryModel:
     bandwidth_GBps: float
@@ -28,6 +29,7 @@ class MemoryModel:
         data_time = bytes_to_move / Bps
         fixed = self.link_latency_ns * 1e-9
         return data_time + fixed
+
 
 @dataclass
 class RerankModel:
@@ -70,6 +72,7 @@ def memory_presets() -> Dict[str, MemoryModel]:
         "DDR": MemoryModel(bandwidth_GBps=280.0, link_latency_ns=100.0),
         "CXL": MemoryModel(bandwidth_GBps=32.0,  link_latency_ns=250.0),
     }
+
 
 def xpu_presets() -> Dict[str, RerankModel]:
     return {
