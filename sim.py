@@ -38,7 +38,6 @@ class RerankModel:
         tflops = max(self.flop_rate_TFLOPs, 1e-9) * 1e12
         return flops / tflops
 
-# ---- Config (no defaults) ----
 
 @dataclass
 class PipelineConfig:
