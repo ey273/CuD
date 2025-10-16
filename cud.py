@@ -81,10 +81,8 @@ def main():
     total_time_drex = total_bitmap_time + total_reranking_time
 
     qps_cud = nq / max(total_time_cud, 1e-12)
-    qps_drex = nq / max(total_time_drex, 1e-12)
 
     print(f"CuD QPS: {qps_cud:.2f}")
-    print(f"DReX QPS: {qps_drex:.2f}")
 
     denom = max(total_time_cud, 1e-12)
     print(f"SCF: %{(100 * total_scf_time / denom):.2f}")
